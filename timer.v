@@ -70,7 +70,8 @@ always @(posedge clk) begin
     	end
     	col = ({col[2:0],col[3]});
 end
-//do not enter values greater than 9
+//do not enter values greater than 9. 
+//Max value = 99:59 (MM:SS)
 	
 //Algorithm for BCD down counting
 always @(posedge clkdiv) begin  //1Hz clock (increased frequency)
