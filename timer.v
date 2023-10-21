@@ -19,7 +19,7 @@ reg [3:0] val;
 initial begin
 	i = 0;
 	j = 0;
-    col = 4'b0001;
+    	col = 4'b0001;
 	first = 4'b0000;
 	second = 4'b0000;
 	third = 4'b000;
@@ -31,11 +31,11 @@ end
 
 always @(posedge clk) begin  //4MHz clock (Spartan 6 FPGA)
 	i = i+1; j = j+1;
-	if (i == 1000) begin //i == 2000000 for 4MHz clock (depends on the FPGA clock). Keep it low for simulation (1000)
+	if (i == 2000000) begin 
 		clkdiv = ~clkdiv;
 		i = 0;
 	end
-	if (j == 1) begin    //j == 2000 for the multiplexed 7-segment display. Keep it low for simulation(1)
+	if (j == 2000) begin    
 		clkdiv2 = ~clkdiv2;
 		j = 0;
 	end
@@ -70,8 +70,8 @@ always @(posedge clk) begin
     col = ({col[2:0],col[3]});
 end
 
-//Assign values to the timer
-always @(posedge clk) begin
+always @(posedge clkdiv) begin  //1Hz clock (increased frequency)
+    //Assign values for the timer
     if (in==4'b0001) first = val;
     else if (in==4'b0010) second = val;
     else if (in==4'b0100) third = val;
@@ -82,10 +82,7 @@ always @(posedge clk) begin
         third = third;
         fourth = fourth;
     end
-end
-
-//Algorithm for BCD down counting
-always @(posedge clkdiv) begin  //1Hz clock (increased frequency)
+    //Algorithm for BCD down counting
     if (enable) begin
         first = first-1;
         if (first == 4'd0) begin
