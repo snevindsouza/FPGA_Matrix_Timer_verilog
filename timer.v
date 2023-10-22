@@ -75,7 +75,8 @@ end
 	
 //Algorithm for BCD down counting
 always @(posedge clkdiv) begin  //1Hz clock (increased frequency)
-    	if (in==4'b0001) first = val;
+	// Assign values to the digits (registers)
+	if (in==4'b0001) first = val;
     	else if (in==4'b0010) second = val;
     	else if (in==4'b0100) third = val;
     	else if (in==4'b1000) fourth = val;
@@ -85,6 +86,7 @@ always @(posedge clkdiv) begin  //1Hz clock (increased frequency)
         	third = third;
         	fourth = fourth;
     	end
+	// Start the timer when enabled 
 	if (enable) begin
         	first = first-1;
         	if (first == 4'd15) begin 
@@ -103,6 +105,7 @@ always @(posedge clkdiv) begin  //1Hz clock (increased frequency)
             		fourth = 4'd9;
         	end
     	end
+	//Pause the timer when not enabled 
     	else begin
         	first = first;
         	second = second;
