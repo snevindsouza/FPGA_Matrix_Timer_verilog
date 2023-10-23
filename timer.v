@@ -20,7 +20,7 @@ reg [3:0] val;
 initial begin
 	i = 0;
 	j = 0;
- col = 4'b0001;
+        col = 4'b0001;
 	first = 4'b0000;
 	second = 4'b0000;
 	third = 4'b000;
