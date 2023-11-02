@@ -1,0 +1,35 @@
+//Spartan 6 pins
+
+NET "row[0]" LOC = P80; 
+NET "row[1]" LOC = P81;
+NET "row[2]" LOC = P82;
+NET "row[3]" LOC = P84;
+NET "col[0]" LOC = P83;
+NET "col[1]" LOC = P88;
+NET "col[2]" LOC = P85;
+NET "col[3]" LOC = P92;
+
+NET "in[0]" LOC = P121;
+NET "in[1]" LOC = P124;
+NET "in[2]" LOC = P127;
+NET "in[3]" LOC = P126;
+NET "enable" LOC = P143;
+
+NET "ctrl[0]" LOC = P30;
+NET "ctrl[1]" LOC = P29;
+NET "ctrl[2]" LOC = P27;
+NET "ctrl[3]" LOC = P26;
+
+NET "segment[0]" LOC = P24;
+NET "segment[1]" LOC = P22;
+NET "segment[2]" LOC = P21;
+NET "segment[3]" LOC = P17;
+NET "segment[4]" LOC = P15;
+NET "segment[5]" LOC = P14;
+NET "segment[6]" LOC = P12;
+NET "segment[7]" LOC = P1;
+
+NET "buzzer" LOC = P6;
+NET "clk" LOC = P55;
+
+
